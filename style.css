@@ -10,15 +10,16 @@ input {
 
 .chat-name,
 .chat-messages,
-.chat-textarea {
-	border:1px solid #bbb;
-	padding:10px;
+.chat-textarea {	
+	border:1px solid #bbb;	
+	width:100%;
+	padding:10px;	
+	box-sizing:border-box;
 }
 
 .chat-name,
 .chat-textArea {
-	outline:none;	
-	width:100%;
+	outline:none;		
 }
 
 .chat-name {

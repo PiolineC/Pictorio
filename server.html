@@ -2,15 +2,90 @@
 <html lang="en-US">
 	<head>
 		<title>Memes and Dreams</title>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<meta charset="UTF-8">
 	</head>
 	<body>
+		<!-- Chat Interface -->
 		<div class="chat">
 			<input type="text" class="chat-name" placeholder="Enter your name here">
-			<div class="chat-messages">			
-			</div>
+			<div class="chat-messages"></div>
 			<textarea class="chat-textarea" placeholder="Type your message"></textarea>
 			<div class="chat-status">Status: <span>Idle</span></div>
 		</div>
+
+		<script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
+
+		<script>
+			(function() {
+				var getNode = function(s) {
+					return document.querySelector(s);
+				}
+
+				//get required nodes
+				var chatName = getNode('.chat-name');
+				var textArea = getNode('.chat-textarea');				
+				var messages = getNode('.chat-messages');
+				var status = getNode('.chat-status span')
+				var statusDefault = status.textContent;
+				var statusDelay;
+
+				setStatus = function(s) {
+					status.textContent = s;
+
+					if (s !== statusDefault) {
+						clearTimeout(statusDelay);
+						statusDelay = setTimeout(function statusTimeout() {
+							setStatus(statusDefault);
+							clearInterval(statusDelay);
+						}, 3000);
+					}
+				};
+				
+				try {
+					var socket = io.connect('http://127.0.0.1:3000');
+				} catch (e) {
+					//warn user
+				}
+
+				if (socket !== undefined) {
+
+					//listen for output
+					socket.on('output', function onOutput(data) {
+						if (data.length) {
+							//loop through results and append message to chat
+							for (var i = 0; i < data.length; i++) {
+								var message = document.createElement('div');
+								message.setAttribute('class', 'chat-message');
+								message.textContent = data[i].name + ': ' + data[i].message;
+								messages.appendChild(message);								
+							} 
+						}
+					});
+
+					//listen for a status
+					socket.on('status', function onStatus(data) {
+						setStatus((typeof data === 'object') ? data.message : data)
+
+						if (data.clear) 
+							textArea.value = '';						
+					});
+					//listen for keydown
+					textArea.addEventListener('keydown', function onKeydown(event) {
+						var self = this,
+							name = chatName.value;
+
+						if (event.which === 13 && !event.shiftKey) {
+							socket.emit('input', {
+								name: name, 
+								message: self.value
+							})
+
+							event.preventDefault();
+						}
+					});
+				}
+			})();
+		</script>
 	</body>
 </html>

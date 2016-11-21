@@ -1,0 +1,23 @@
+{
+  "name": "pictorio",
+  "version": "0.0.1",
+  "description": "Picture based word guessing game!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PiolineC/Pictorio.git"
+  },
+  "author": "Pioline",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PiolineC/Pictorio/issues"
+  },
+  "homepage": "https://github.com/PiolineC/Pictorio#readme",
+  "dependencies": {
+    "mongodb": "^2.2.11",
+    "socket.io": "^1.6.0"
+  }
+}

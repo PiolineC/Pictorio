@@ -1,6 +1,6 @@
 {
   "name": "pictorio",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Picture based word guessing game!",
   "main": "app.js",
   "scripts": {

@@ -1,22 +1,24 @@
 {
-  "name": "pictorio",
-  "version": "0.1.0",
-  "description": "Picture based word guessing game!",
-  "main": "app.js",
+  "name": "socket-chat",
+  "version": "1.0.0",
+  "description": "MongoDB/Express/Node based real time chat application using socket.io.",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PiolineC/Pictorio.git"
+    "url": "git+https://github.com/PiolineC/Socket-Chat.git"
   },
   "author": "Pioline",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PiolineC/Pictorio/issues"
+    "url": "https://github.com/PiolineC/Socket-Chat/issues"
   },
-  "homepage": "https://github.com/PiolineC/Pictorio#readme",
+  "homepage": "https://github.com/PiolineC/Socket-Chat#readme",
   "dependencies": {
+    "bluebird": "^3.4.7",
+    "express": "^4.14.1",
     "mongodb": "^2.2.11",
     "socket.io": "^1.6.0"
   }

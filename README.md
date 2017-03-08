@@ -1,2 +1,2 @@
-# Pictorio
-A journey of a thousand miles begins with a single step.
+# Socket-Chat
+MongoDB/Express/Node based real time chat application using socket.io and jquery. Made for learning purposes.

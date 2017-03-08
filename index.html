@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-<head>
-  <title>Memes and Dreams</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <meta charset="UTF-8">
-</head>
+  <head>
+    <title>Real Time Chat</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+  </head>
 
-<body>
-  <!-- Chat Interface -->
-  <div class="chat">
-    <input type="text" class="chat-name" placeholder="Enter your name here">
-	  <div class="chat-messages"></div>
-	  <textarea class="chat-textarea" placeholder="Type your message"></textarea>
-	  <div class="chat-status">Status: <span>Idle</span></div>
-  </div>
+  <body>
+    <!-- Chat Interface -->
+    <div class="chat">
+      <input type="text" class="chat-name" placeholder="Enter your name here">
+	    <div class="chat-messages"></div>
+	    <textarea class="chat-textarea" placeholder="Type your message"></textarea>
+	    <div class="chat-status">Status: <span>Idle</span></div>
+    </div>
 
-  <script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
-  <script src="client.js"></script>
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
+    <script src="chat.js"></script>
+  </body>
 </html>
